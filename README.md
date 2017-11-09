@@ -1,6 +1,6 @@
 # docker-weblogic1036
 Build Docker image:
-docker build --build-arg  -t myweblogic1036 docker-weblogic1036
+docker build   -t myweblogic1036 docker-weblogic1036
 
 Run docker image:
 docker run -d -ti -p 7001:7001 myweblogic1036
