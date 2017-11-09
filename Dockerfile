@@ -1,4 +1,4 @@
-FROM oraclelinux:6.8
+FROM ubuntu:14.06
 MAINTAINER Jose Legido "jose@legido.com"
 
 ARG ORACLE_USER
@@ -9,7 +9,7 @@ RUN groupadd -g 1001 weblogic && useradd -u 1001 -g weblogic weblogic
 RUN mkdir -p /u01/install && mkdir -p /u01/scripts
 
 # EINES
-RUN yum install -y tar
+RUN apt-get update && apt-get install -y tar && apt-get install  -y curl
 
 COPY scrics/install_weblogic1036.sh /u01/install/install_weblogic1036.sh
 COPY scrics/template1036.jar /u01/install/template1036.jar
