@@ -1,5 +1,5 @@
 FROM ubuntu:14.06
-MAINTAINER Jose Legido "jose@legido.com"
+
 
 ARG ORACLE_USER
 ARG ORACLE_PASSWORD
