@@ -25,7 +25,7 @@ cd /u01/install
 # Descarga de JVM
 curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0 Iceweasel/38.6.0" \
 -b 'oraclelicense=accept-dbindex-cookie' \
--OL http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
+-OL https://github.com/magic-chenyang/testone/releases/download/1.0/jdk-6u45-linux-x64.bin
 
 v_Site2pstoreToken=`curl -s -A "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" -L $v_download | grep site2pstoretoken | awk -Fsite2pstoretoken {'print $2'}|awk -F\= {'print  $2'}|awk -F\" {'print $2'}`
 
@@ -41,8 +41,8 @@ curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0 Ic
 -OL $v_download
 
 #Instalacion JVM
-tar -xzvf /u01/install/jdk-7u79-linux-x64.tar.gz -C /u01/install
-mv /u01/install/jdk1.7.0_79 /u01/java
+./jdk-6u45-linux-x64.bin
+mv /u01/install/jdk1.6.0_45 /u01/java
 
 #Instalación Weblogic
 echo '<?xml version="1.0" encoding="UTF-8"?>
