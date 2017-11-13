@@ -1,11 +1,7 @@
 #!/bin/bash
-if [ -z "$ORACLE_USER" ]
-then
-  exit 0
-fi
 
-v_usuario_oracle="$ORACLE_USER"
-v_contrasenya_oracle=$ORACLE_PASSWORD
+
+
 
 v_weblogic_user=weblogic
 v_weblogic_password=weblogic01
@@ -23,22 +19,8 @@ v_tmp_silent=/tmp/$$_silent.xml
 cd /u01/install
 
 # Descarga de JVM
-curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0 Iceweasel/38.6.0" \
--b 'oraclelicense=accept-dbindex-cookie' \
--OL https://github.com/magic-chenyang/testone/releases/download/1.0/jdk-6u45-linux-x64.bin
-
-v_Site2pstoreToken=`curl -s -A "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" -L $v_download | grep site2pstoretoken | awk -Fsite2pstoretoken {'print $2'}|awk -F\= {'print  $2'}|awk -F\" {'print $2'}`
-
-curl -s -A "Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0 Iceweasel/38.6.0"  \
--d 'ssousername='$v_usuario_oracle'&password='$v_contrasenya_oracle'&site2pstoretoken='$v_Site2pstoreToken \
--o /dev/null \
-https://login.oracle.com/sso/auth -c $v_cookie
-
-echo '.oracle.com	TRUE	/	FALSE	0	oraclelicense	accept-dbindex-cookie' >> $v_cookie
-
-curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0 Iceweasel/38.6.0" \
--b $v_cookie \
--OL $v_download
+wget https://github.com/magic-chenyang/testone/releases/download/1.0/jdk-6u45-linux-x64.bin
+wget https://github.com/magic-chenyang/testone/releases/download/1.0/wls1036_generic.jar
 
 #Instalacion JVM
 ./jdk-6u45-linux-x64.bin
