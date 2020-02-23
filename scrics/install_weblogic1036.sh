@@ -18,10 +18,6 @@ v_tmp_silent=/tmp/$$_silent.xml
 
 cd /u01/install
 
-# Descarga de JVM
-wget https://github.com/magic-chenyang/testone/releases/download/1.0/jdk-6u45-linux-x64.bin
-wget https://github.com/magic-chenyang/testone/releases/download/1.0/wls1036_generic.jar
-
 #Instalacion JVM
 ./jdk-6u45-linux-x64.bin
 mv /u01/install/jdk1.6.0_45 /u01/java
