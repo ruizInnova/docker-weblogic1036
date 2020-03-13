@@ -24,16 +24,15 @@ RUN chmod +x /u01/scripts/start_ALL.sh
 RUN chmod +x /u01/install/jdk-6u45-linux-x64.bin
 RUN chmod +x /u01/install/wls1036_generic.jar
 
-# USER
+# restricted USER
 #RUN groupadd -g 1001 weblogic && useradd -u 1001 -g weblogic weblogic
-#RUN mkdir -p /u01/install && mkdir -p /u01/scripts
 #RUN chown -R weblogic. /u01
 #USER weblogic
 
 ENV USER_MEM_ARGS="-Djava.security.egd=file:/dev/./urandom"
 
+RUN mkdir -p /u01/install && mkdir -p /u01/scripts
 RUN cd /u01/install && /u01/install/install_weblogic1036.sh
-
 RUN cd /u01/install && /u01/scripts/start_AdminServer.sh && ./create_domain.sh create_domain.ini /u01/middleware1036/wlserver_10.3/server/bin/setWLSEnv.sh
 
 #Esborrem programari d'instalacio
